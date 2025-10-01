@@ -1,0 +1,27 @@
+{
+  "name": "processor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node-esm src/index.ts",
+    "build": "tsc -b",
+    "copy:gen": "cpx \"src/generated/**/*\" \"dist/generated\"",
+    "start": "prisma generate && npm run build && npm run copy:gen && node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "kafkajs": "^2.2.4",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "prisma": "^6.16.2"
+  }
+}
